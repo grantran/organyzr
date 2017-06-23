@@ -23,31 +23,17 @@ class Landing extends Component {
   }
 
   componentDidMount() {
-     let self = this;
-    axios.get(`/landing/check`)
-    .then(res => {
-      self.setState({userid: res.data})
-    })
-    // if (this.state.userid) {
-    //   console.log('inside componenetdidmount');
-    //   this.props.update();  
-    // }
-    // this.props.update();
+
   }
 
   render() {
 
     // if (this.state.userid) {
-      console.log('before update');
-           this.props.update(true); 
-
-      console.log('after update');
-    
 
     let landing = [];
-    if (this.state.userid === false) {
+    if (this.props.user === false) {
       landing.push(<Loader active inline='centered' />) 
-    } else if (this.state.userid === 'not logged in') {
+    } else if (this.props.user === 'not logged in') {
       landing.push(<Router>
         <div>
       <Segment padded size='tiny'>
@@ -68,9 +54,9 @@ class Landing extends Component {
        </Router>)
     } else {
       console.log('inside render, logged in', 
-      this.state.userid);
+      this.props.user);
       landing.push(<Segment>
-        <div> Hello {this.state.userid.first_name} </div>
+        <div> Hello  </div>
         </Segment>)
     }
     const styles = {

@@ -13,7 +13,7 @@ import About from './About.jsx';
 import Login from './Login.jsx';
 import axios from 'axios';
 
-class Nav extends React.Component {
+class NavUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,11 +43,11 @@ class Nav extends React.Component {
   render () {
     // console.log('nav render console', this.props.user);
     const routes = [
-      // { path: '/',
-      //   exact: true,
-      //   sidebar: () => <Landing update={this.updateHandler}/>,
-      //   main: () => <Landing update={i => this.setState({updateMe: i}) }/>
-      // },
+      { path: '/',
+        exact: true,
+        sidebar: () => <Landing update={this.updateHandler}/>,
+        main: () => <Landing update={i => this.setState({updateMe: i}) }/>
+      },
       { path: '/about',
         sidebar: () => <About/>,
         main: () => <About/>
@@ -149,4 +149,4 @@ class Nav extends React.Component {
 
 
 
-export default Nav;
+export default NavUser;
