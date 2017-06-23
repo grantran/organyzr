@@ -12,3 +12,14 @@ if (module.hot) {
 
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+
+window.render = function () {
+  ReactDOM.render(<App />, document.getElementById('app'));
+};
+
+window.reloadApp = function () {
+  console.log('global');
+  window.render();
+}
+

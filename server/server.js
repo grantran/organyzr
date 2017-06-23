@@ -160,6 +160,17 @@ app.use(webpack.middleware(compiler, {
 
 app.use(webpack.hot(compiler));
 
+app.get('/about', function(req, res) {
+  res.redirect('/#/about');
+})
+
+app.get('/games', function(req,res) {
+  if (!req.user) {
+    res.redirect('/#/login');
+  } else {
+    res.redirect('/#/games');
+  }
+})
 
 // Listen to POST requests to /users.
 app.post('/signup', function(req, res) {
@@ -216,10 +227,11 @@ app.post('/login',
 
 
 app.use('/test/login', loginRoutes(knex, passport));
+
 app.get('/games/data', function(req, res) {
     console.log('server side');
-    console.log(req.session.passport.id)
-    gamesRoutes(knex, res, req.session.passport.id);
+    console.log(req.session.passport.user)
+    gamesRoutes(knex, res, req.session.passport.user);
 })
 
 
@@ -228,8 +240,12 @@ app.get('/landing/check', function(req, res) {
   if (!req.user) {
     res.send('not logged in');
   } else {
-    // console.log('no user');
-    res.send(req.session.passport.user.toString())
+    knex.select("*").from("users").where({
+      id: req.session.passport.user
+    }).then(function(results){
+      console.log(results);
+      res.send(results);
+    })
   }
 })
 

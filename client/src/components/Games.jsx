@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Button, Card, Image, Grid } from 'semantic-ui-react';
 import axios from 'axios';
 import Moment from 'react-moment';
+import { Route, Redirect} from 'react-router-dom'
 
 class Games extends Component {
   constructor (props) {
@@ -25,6 +26,11 @@ class Games extends Component {
   }
 
   render () {
+
+    if (!this.props.user) {
+      return <Redirect push to='/login'/>
+    }
+
     // console.log('first in render', this.state.games);
     // console.log(this.state.games.length); 
     // console.log(this.state.games[0]);

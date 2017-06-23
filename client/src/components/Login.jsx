@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import { Route, Redirect} from 'react-router-dom'
+import { HashRouter as Router, Route, Redirect, withRouter} from 'react-router-dom'
 
 import { Button, Checkbox, Form, Message } from 'semantic-ui-react'
-
+import Landing from './Landing.jsx';
+import App from '../App.jsx';
+import Nav from './Nav.jsx';
 
 
 class Login extends React.Component {
@@ -15,7 +17,11 @@ class Login extends React.Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  
+}
+
+
+ 
 
   handleInputChange(event) {
     const target = event.target;
@@ -28,8 +34,6 @@ class Login extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log(e)
-    console.log('fetch call')
     e.preventDefault();
     var self = this;
     // let formData = new FormData();
@@ -49,17 +53,26 @@ class Login extends React.Component {
       })
       .then(response => response.text())
       .then(function(body) {
-        
+        console.log('body', body);
         self.setState({message: body.message, redirect: true});
+        // return <Redirect push to='/'/>
+        // self.context.router.push('/')
+        // console.log('after redirect');
+        // return console.log('return')
         
       });
   }
+
+
   render() {
     const {redirect} = this.state;
 
     if (redirect) {
-      return <Redirect to='/'/>;
-    }
+      
+      return <Redirect replace to='/'/>
+
+
+  }
     return (
 
         <div>

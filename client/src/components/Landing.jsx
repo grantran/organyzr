@@ -8,6 +8,7 @@ import { Segment, Button, Divider, Image } from 'semantic-ui-react'
 
 import Signup from './Signup.jsx';
 import Login from './Login.jsx';
+import Nav from './Nav.jsx';
 import axios from 'axios';
 import { Message, Loader } from 'semantic-ui-react'
 
@@ -16,21 +17,32 @@ class Landing extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      userid: false
+      userid: false,
+      update: false
     }
   }
 
-  componentDidMount() { 
-    
-  let self = this;
-   axios.get(`/landing/check`)
+  componentDidMount() {
+     let self = this;
+    axios.get(`/landing/check`)
     .then(res => {
-      console.log(res);
       self.setState({userid: res.data})
     })
+    // if (this.state.userid) {
+    //   console.log('inside componenetdidmount');
+    //   this.props.update();  
+    // }
+    // this.props.update();
   }
 
   render() {
+
+    // if (this.state.userid) {
+      console.log('before update');
+           this.props.update(true); 
+
+      console.log('after update');
+    
 
     let landing = [];
     if (this.state.userid === false) {
@@ -55,8 +67,10 @@ class Landing extends Component {
       </div>
        </Router>)
     } else {
+      console.log('inside render, logged in', 
+      this.state.userid);
       landing.push(<Segment>
-        <div> Hello </div>
+        <div> Hello {this.state.userid.first_name} </div>
         </Segment>)
     }
     const styles = {
