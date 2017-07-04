@@ -14,23 +14,16 @@ class Games extends Component {
   componentDidMount() {
     let games; 
     var self = this; 
-    console.log('before axios request');
     axios.get(`/games/data`)
     .then(res => {
       self.setState({games: self.state.games.concat(res.data)})
-      console.log(self.state.games);
     })
   
   // console.log('last thing in comp did mount');
   }
 
   render () {
-    // console.log('first in render', this.state.games);
-    // console.log(this.state.games.length); 
-    // console.log(this.state.games[0]);
-    console.log('first in render', this.state.games);
     let gameCards = this.state.games;
-    console.log('gamecards', gameCards);
     let htmlGames = [];
     if (gameCards.length !=  null) {
       for (let i = 0; i < gameCards.length; i++) {

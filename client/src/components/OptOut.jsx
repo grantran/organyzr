@@ -15,12 +15,9 @@ class OptOut extends React.Component {
 
   componentDidMount() {
     var self = this;
-    console.log('before axios request');
-    console.log(self.props.location.pathname)
     axios.post(self.props.location.pathname)
     .then(res => {
       self.setState({message: res.data})
-      console.log(res.data)
     })
   }
 

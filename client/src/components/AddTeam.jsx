@@ -41,7 +41,6 @@ class NewTeam extends React.Component {
         })
       })
       .then(function(response) {
-        console.log(response);
         if (response.status === 200) {
           self.props.updateTeam();
           self.state.uuid = '';
@@ -91,11 +90,6 @@ class NewTeam extends React.Component {
             </Form.Field>
             <Button onClick={this.resetField} type='submit'>Add</Button>
           </Form>
-
-
-
-
-
           </Segment>
         </Accordion.Content>
       </Accordion>

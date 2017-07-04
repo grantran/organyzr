@@ -44,7 +44,7 @@ module.exports = (knex, game_id, user_id, transporter, res) => {
 
 
 
-      let message_html = `<b>${message_body}</b> <br></br><br></br><a href=\'http://organyzr.ca/#/optin/${email.uuid}\' >Click Here to Opt In!</a><br></br><br></br><a href=\'http://organyzr.ca/#/optout/${email.uuid}\' >Click Here to Opt Out!</a>`
+      let message_html = `<b>${message_body}</b> <br></br><br></br><a href=\'https://organyzr.ca/#/optin/${email.uuid}\' >Click Here to Opt In!</a><br></br><br></br><a href=\'https://organyzr.ca/#/optout/${email.uuid}\' >Click Here to Opt Out!</a>`
       console.log(message_html)
 
       let mailOptions = {

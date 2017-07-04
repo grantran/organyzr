@@ -25,11 +25,9 @@ class Settings extends React.Component {
 
   componentDidMount() {
     var self = this;
-    console.log('before axios request');
     axios.get(`/settings/data`)
     .then(res => {
       self.setState(res.data[0])
-      console.log(res.data[0]);
     })
   }
 
@@ -64,22 +62,15 @@ class Settings extends React.Component {
         })
       })
       .then(function(response) {
-        console.log('response', response)
         if (response.status === 200) {
-          console.log('success')
-          console.log('json', response.json)
-          console.log('body', response.body)
         }
         return response.json()
       })
       .then(function(body) {
-        console.log('body', body);
-        console.log(body.message);
         self.setState({message: body.message});
         if(self.state.message === 'users_phone_unique') {
           self.setState({errorMessage: 'Phone already exists'})
         }
-        console.log('self msg', self.state.message)
       });
   }
   render() {

@@ -25,13 +25,11 @@ class ManageGameCard extends Component {
   componentDidMount() {
     let teams;
     let self = this;
-    console.log('self.props.', self.props);
     self.setState({location: self.props.game.location,
       description: self.props.game.description})
   }
 
   toggleHover() {
-    console.log('here')
     this.setState({hover: !this.state.hover})
   }
 
@@ -48,11 +46,9 @@ class ManageGameCard extends Component {
 
     getRoster (gameid) {
     let self = this;
-    console.log('getroster');
     axios.get(`/player/data/` + self.state.team + '/' + gameid.toString())
     .then(res => {
-      let gameRoster = []
-      console.log('resssss',res);
+      let gameRoster = [];
       res.data.forEach((item) => {
         gameRoster.push(item.first_name);
       })
@@ -76,7 +72,6 @@ class ManageGameCard extends Component {
     self.setState({notification: 'Sending...'})
       axios.post('/notification/' + gameid.toString())
       .then(res => {
-      console.log(res)
       self.setState({notification: 'Sent to ' + res.data + ' players!'})
     })
     }
@@ -148,10 +143,8 @@ const flexStyle = {
 }
 let cardStyle;
 if (this.state.hover) {
-  console.log('do it')
   cardStyle = {transform: 'scale(1.1)'};
 } else {
-  console.log('dont grow')
   cardStyle = {transform: 'scale(1)'}
 }
 

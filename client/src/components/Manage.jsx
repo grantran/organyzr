@@ -29,7 +29,6 @@ class Manage extends Component {
     var self = this;
     axios.get(`/teams/data`)
     .then(res => {
-      console.log('managedata', res.data);
       self.setState({teams: self.state.teams.concat(res.data)})
     })
     // testing for twilio
@@ -64,7 +63,6 @@ class Manage extends Component {
   let htmlTeams = [];
 
   if (teamCards.length !=  null) {
-    console.log(teamCards,'teamcards');
     for (let i = 0; i < teamCards.length; i++) {
       let teamPath = '/manageteam/' + teamCards[i].uuid;
       htmlTeams.push(

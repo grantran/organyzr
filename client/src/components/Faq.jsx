@@ -10,9 +10,10 @@ class Faq extends React.Component {
 
     const items = [
       'Register for an account',
-      'Create a New Team in "Manage" - don\'t your logo!',
+      'Create a New Team in "Manage" - don\'t forget your logo!',
       'Give your unique team code to your players',
-      'Add Games for your players - Date, Time, and Location'
+      'Add Games for your players - Date, Time, and Location',
+      'Send reminders in each team\'s specific \'Manage\' page'
     ]
 
     const items2 = [
@@ -20,7 +21,7 @@ class Faq extends React.Component {
       'Contact your Manager for a unique team code', 
       'Add your team unique\'s code under "My Team"',
       'View your team\'s schedule and confirm your attendance',
-      'Don\'t forget to include up to date email and phone number for friendly reminders and notifications'
+      'Don\'t forget to include up to date phone number for friendly reminders and notifications'
     ]
 
     const styles = {

@@ -25,7 +25,6 @@ class Landing extends Component {
   let self = this;
    axios.get(`/landing/check`)
     .then(res => {
-      console.log('in landing', res);
       self.setState({userid: res.data})
     })
   }
@@ -60,7 +59,7 @@ class Landing extends Component {
               <Divider horizontal>Or</Divider>
               
               <Link to='/signup'>
-                <Button color='red' fluid>Sign Up Now</Button>
+                <Button color='green' fluid>Sign Up Now</Button>
               </Link>
             </Segment>
             <Route path='/login' component={Login}/>
@@ -91,6 +90,16 @@ class Landing extends Component {
                   <Message.List style={styles.textfont}>
                     A manager-based dashboard system to manage sport teams.
                   </Message.List>
+                  <Message.List style={styles.textfont}>
+		                With Organyzr you can manage your schedule, view attending players, and send email/text notification to your players!
+		              </Message.List>
+                  <Message.List style={styles.textfont}>
+                    Want to try out Organyzr? Login using our trial account!
+                    <br/>
+                    <br/>
+                    Email: organyzr01@gmail.com <br/>
+                    Password: sports123
+                  </Message.List>  
                   <br/>
             </Message>
               </Grid.Column>

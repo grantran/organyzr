@@ -61,7 +61,6 @@ class Signup extends React.Component {
 
 
   handleSubmit(e) {
-    console.log("Submit clicked");
     e.preventDefault();
     this.handleFormValidation();
     let errorMessages = {email: [], phone: []};
@@ -86,7 +85,6 @@ class Signup extends React.Component {
         return response.json()
       })
       .then(function(body) {
-        console.log('what is in the body', body)
         // self.setState({message: body.message});
         self.setState({message: body.message})
         if(self.state.message === 'Success!') {
@@ -109,14 +107,12 @@ class Signup extends React.Component {
       })
       .then(function(response) {
         if (response.statusText === 'Unauthorized') {
-          console.log('unauth');
         } else {
           return response.text();
         }})
       .then(function(body) {
         // console.log("body message", JSON.parse(body));
         if (body) {
-          console.log('body');
           self.setState({redirect: true});
         } else {
           self.setState({errorMessage: 'Incorrect Credentials'})
@@ -142,7 +138,7 @@ class Signup extends React.Component {
 
     const items = [
       'Manage your team',
-      'Automate your reminders - choose from text, email, or Facebook messenger',
+      'Send your notifications from Organyzr - email or text',
       'Your players never have to visit our page!'
     ]
 

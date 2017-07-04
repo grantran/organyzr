@@ -142,7 +142,7 @@ passport.use(new LocalStrategy(
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_ID,
   clientSecret: process.env.FACEBOOK_SECRET,
-  callbackURL: "http://organyzr.ca/auth/facebook/callback",
+  callbackURL: "https://organyzr.ca/auth/facebook/callback",
   profileFields: ['id', 'email', 'name']
   },
   function(accessToken, refreshToken, profile, done) {
@@ -409,6 +409,6 @@ app.get('/landing/check', function(req, res) {
 
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server running at https://localhost:${PORT}`);
 });
 

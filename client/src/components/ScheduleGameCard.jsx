@@ -19,7 +19,6 @@ class LinkButton extends Component {
   componentDidMount() {
     let teams;
     let self = this;
-    console.log('self.props.', self.props);
     self.setState({location: self.props.game.location,
       description: self.props.game.description})
   }
@@ -28,18 +27,15 @@ class LinkButton extends Component {
 
   axios.post(`/schedule/`+this.state.game_id.toString())
     .then(res => {
-    console.log('update avail')
     })
   this.setState({ active: !this.state.active })}
 
   handleClickNotGoing() {  axios.post(`/schedule/`+this.state.game_id.toString())
     .then(res => {
-    console.log('update avail')
     })
   this.setState({ active: !this.state.active })}
 
   toggleHover() {
-    console.log('here')
     this.setState({hover: !this.state.hover})
   }
   
@@ -83,10 +79,8 @@ class LinkButton extends Component {
 
   let cardStyle;
   if (this.state.hover) {
-  console.log('do it')
   cardStyle = {transform: 'scale(1.1)'};
   } else {
-  console.log('dont grow')
   cardStyle = {transform: 'scale(1)'}
   }
     

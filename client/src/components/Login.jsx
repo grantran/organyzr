@@ -43,8 +43,6 @@ class Login extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log(e)
-    console.log('fetch call')
     e.preventDefault();
     var self = this;
     // let formData = new FormData();
@@ -64,7 +62,6 @@ class Login extends React.Component {
       })
       .then(function(response) {
         if (response.statusText === 'Unauthorized') {
-          console.log('unauth');
         } else {
           return response.text();
         }})

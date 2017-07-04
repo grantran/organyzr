@@ -48,8 +48,6 @@ class Calendar extends React.Component {
     'start': new Date(2017, 6, 0),
     'end': new Date(2017, 6, 1)
   }
-  console.log('in calendar parsed games', events, event)
-  console.log('in calendar games', this.props.games)
     return (
       // React Components in JSX look like HTML tags
       <Accordion name="ui accordion">
