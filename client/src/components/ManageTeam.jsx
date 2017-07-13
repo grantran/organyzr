@@ -58,14 +58,14 @@ class ManageTeam extends Component {
   }
 
   render () {
-  let self = this;
-  let team = self.state.team
-  let gameCards = this.state.games;
-  let htmlGames = [];
+    let self = this
+    let team = self.state.team
+    let gameCards = this.state.games;
+    let htmlGames = [];
+
     if (gameCards.length !=  null) {
       for (let i = 0; i < gameCards.length; i++) {
         htmlGames.push(
-
         <ManageGameCard key={uuidv4()} game={gameCards[i]}
           edit={self.editGame}
           delete={self.deleteGame}/>
@@ -82,6 +82,7 @@ class ManageTeam extends Component {
         paddingRight: 200
       }
     }
+    
     return (
       <div style={styles.div}>
         <h3> Hello Manager </h3>
@@ -94,12 +95,11 @@ class ManageTeam extends Component {
           {htmlGames}
           </Grid.Row>
         </Grid>
-
         <div>
-            <NewGame className='new-team' updateGame={this.updateGame} uuid={team}/>
+          <NewGame className='new-team' updateGame={this.updateGame} uuid={team}/>
         </div>
         <div>
-            <Calendar games={gameCards} className='team-calendar'/>
+          <Calendar games={gameCards} className='team-calendar'/>
         </div>
       </div>
     );
